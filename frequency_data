@@ -3,9 +3,7 @@ library(plyr)
 library(zoo)
 library(GLDEX)
 
-
 te = read.delim("file location")
-head(te)
 
 #get Group 
 chr.i = te[which(te$Group == 'groupI'),]
