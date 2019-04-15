@@ -33,3 +33,9 @@ The parameters follow:
 `mean.window`: Window size for averaging frequency data  
 `mean.fit`: Smoothness of best fit line for average frequencies default is 0.3   
 `total.fit`: Smoothness of best fit line for totals, default is 0.3   
+
+
+![Some Example Data For Your Pleasure](https://github.com/DambrosiCode/transposon_stats/blob/master/ChrIV.png)  
+Here is an example from my research showing the TE frequencies for Chromosome IV in the threespined-sticklback (*Gasterosteus aculeatus*) with a window of 100,000, and a fit line at 0.3.   
+It shows the frequency, best fit line, total, and total best fit line.  
+The right y-label shows the overall frequencies (where 1 is fixed in the population). The left y-label shows the totals the max of the highest total. THe x-label is the bp location in the given chromosome. 
