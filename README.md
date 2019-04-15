@@ -1,4 +1,4 @@
-# transposon_stats
+# frequency_data
 A few scripts I'm using for transposon analysis. 
 
 All TE data was collected in a generic feature format (GFF) annotating location and frequency in a pooled population. This allows the software to plot the TE locations on a simple scatter plot. 
