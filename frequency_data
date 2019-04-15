@@ -17,17 +17,6 @@ chr.viii = te[which(te$Group == 'groupVII'),]
 chr.ix = te[which(te$Group == 'groupIX'),]
 
 chr.xx = te[which(te$Group == 'groupXX'),]
-#Order by location
-chr.iv = chr.iv[order(rs$Loc), ]
-table(chr.iv$Name)
-set = which(chr.iv$FreqRS <= .75 & chr.iv$FreqRS > .1)
-
-plot(x = chr.iv$Loc[], y = chr.iv$FreqRS[], col = 'blue', 
-     ylim = c(0,1), xlim = c(11000000,14000000))
-abline(v = 12810341)
-#points(x = chr.iv$Loc[], y = chr.iv$FreqRS[], col = 'green')
-
-sum(chr.iv$Loc[which(chr.iv$Loc == 1000)])
 
 add.te = function(window.size, group, area = c(0, group$Loc[which.max(group$Loc)])){
   k=1
@@ -67,21 +56,9 @@ mean.te = function(window.size, group, pop, area = c(0, group$Loc[which.max(grou
   return(na.omit(total))
 }
 
-
-#plot freq aves
-rs.iv.ave = mean.te(100000, chr.iv[], "FreqRS", c(0,111111111))
-cl.iv.ave = mean.te(100000, chr.iv, "FreqCL")
-plot(rs.iv.ave[], col = 'purple')
-points(iv.ave[], col = 'orange')
-lines(smooth.spline(rs.iv.ave[]), col = 'blue') #RS freq linefit
-lines(smooth.spline(cl.iv.ave), col = 'red')    #CL freq linefit
-
-#plot the sums and adjust frequency by max sum value 
+#genes of interest and the size around it 
 span = 1000000
-eda = c(12808589-span, 12810341+span)
-pitx1 = c(1940668-span, 1942204+span)
-
-y
+loci = c(3000000-span, 30000100+span)
 
 #comparison graph
 compare = function(pop, chr, gene, mean.window, total.window, mean.fit = .2, total.fit = .2){
@@ -119,10 +96,13 @@ compare = function(pop, chr, gene, mean.window, total.window, mean.fit = .2, tot
     geom_vline(aes(xintercept = gene[1]+span))
   
   #debug
-  print(y2)
   
   #plot
   return(c)
 }
 
-compare("FreqRS", chr.iv, NA, 1000, 100000)
+#gene parameter is left NA to target whole chromosome
+compare(pop = "FreqRS", chr = chr.iv, gene = NA, mean.window = 1000, total.window = 100000)
+
+#plots targeted gene plus area around it, along with an abline showing gene loci
+compare(pop = "FreqRS", chr = chr.iv, gene = loci, mean.window = 1000, total.window = 100000)
