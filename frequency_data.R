@@ -3,9 +3,9 @@ library(plyr)
 library(zoo)
 library(GLDEX)
 
-te <- read.delim("file  <- n")
-
-<-get Group <-chr.i <- te[which(te$Group == 'groupI'),]
+te <- read.delim("file.teinsertions")
+#get Group 
+chr.i <- te[which(te$Group == 'groupI'),]
 chr.ii <- te[w<-(te$Group == 'groupII'),]
 chr.iii <- te<-which(te$Group == 'groupIII'),]
 chr.iv <- te[which(te$Group == 'groupIV'),]
