@@ -5,17 +5,6 @@ library(GLDEX)
 
 te <- read.delim("file.teinsertions")
 #get Group 
-chr.i <- te[which(te$Group == 'groupI'),]
-chr.ii <- te[w<-(te$Group == 'groupII'),]
-chr.iii <- te<-which(te$Group == 'groupIII'),]
-chr.iv <- te[which(te$Group == 'groupIV'),]
-chr.v <- te[<-ich(te$Group == 'groupV'),]
-chr.vi <- te[which(te$Group == 'groupVI'),]
-chr.vii <- te[which(te$Group == 'groupVII'),]
-chr.viii <- te[which(te$Group == 'groupVII'),]
-chr.ix <- te[which(te$Group == 'groupIX'),]
-
-chr.xx <- te[which(te$Group == 'groupXX'),]
 
 add.te <- function(window.size, group, area = c(0, group$Loc[which.max(group$Loc)])){
   k <- 1
@@ -60,7 +49,10 @@ span <- 1000000
 loci <- c(3000000-span, 30000100+span)
 
 #comparison graph
-compare <- function(pop, chr, gene, mean.window, total.window, mean.fit = .2, total.fit = .2){
+compare <- function(data, pop, chr, gene, mean.window, total.window, mean.fit = .2, total.fit = .2){
+  #get chromosome
+  chr <- data[which(data$Group == chr),]
+  
   #get frequency and totals vectors 
   if (is.na(gene)) {
     rs.freq <- mean.te(mean.window, chr, pop)
